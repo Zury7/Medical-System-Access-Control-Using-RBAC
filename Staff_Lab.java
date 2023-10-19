@@ -7,4 +7,10 @@ public class Staff_Lab extends User {
     public Staff_Lab(String username,String hashed_password,String category, int access_level){ 
         super(username, hashed_password, category, access_level);
     }
+
+    public void display_Staff_LabAccess() {
+        System.out.println("Lab Test Prescriptions:"+Patientdatalog.getLab_test_prescription());
+    }
+
+  
 }

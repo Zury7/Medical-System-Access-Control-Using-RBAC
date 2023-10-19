@@ -7,4 +7,10 @@ public class Staff_Nurse extends User {
     public Staff_Nurse(String username,String hashed_password,String category, int access_level){ 
         super(username, hashed_password, category, access_level);
     }
+
+    public void display_Staff_NurseAccess(){
+        System.out.println("Sickness Details:"+Patientdatalog.getSickness_details());
+        System.out.println("Drug Prescriptions:"+Patientdatalog.getDrug_prescriptions());
+        System.out.println("Lab Test Prescriptions:"+Patientdatalog.getLab_test_prescription());
+    }
 }
