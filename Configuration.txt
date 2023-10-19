@@ -1,0 +1,4 @@
+username1,7c6a180b36896a0a8c02787eeafb0e4c,patient,0
+username2,6cb75f652a9b52798eb6cf2201057c73,staff,1
+username3,819b0643d6b89dc9b579fdfc9094f28e,staff,2
+username4,34cc93ece0ba9e3f6f235d4af979b16c,staff,3
