@@ -22,7 +22,7 @@ public class Controller {
             if (tokens[2].equals("patient")) {
                 /*A Patient object is created and added to the ArrayList*/
                 Patient patient = new Patient(tokens[0], tokens[1], tokens[2], Integer.parseInt(tokens[3]));
-                Patient.getPatientsList().add(patient);
+                Globals.getPatientsList().add(patient);
                 
             /*The third token  and fourth token is used to determine the type of the Staffobject to be created*/
             } else if (tokens[2].equals("staff")){
@@ -76,13 +76,13 @@ public class Controller {
         /*The generated MD5 hashed value is compared with the stored MD5 hashed value*/
         int authbit = 0;
         
-        List <Patient> Patients = Patient.getPatientsList();
+        List <Patient> Patients = Globals.getPatientsList();
         for (Patient patient : Patients) {
             if (patient.getUsername().equals(username) && patient.getHashed_password().equals(generatedPassword)) {
                 System.out.println("Patient: "+username+" is authenticated");
                 activeUser = username;
                 authbit = 1;
-                
+            
             }
         }
         List <Staff_Lab> Staff_Lab = Globals.getStaff_LabList();
@@ -120,7 +120,7 @@ public class Controller {
 
     public int getActiveUserAccessLevel(String activeUser) {
         int accessLevel = 0;
-        List <Patient> Patients = Patient.getPatientsList();
+        List <Patient> Patients = Globals.getPatientsList();
         for (Patient patient : Patients) {
             if (patient.getUsername().equals(activeUser)) {
                 accessLevel = patient.getAccess_level();
@@ -150,16 +150,24 @@ public class Controller {
     public void readPatientdataFile() throws FileNotFoundException, IOException {
         FileReader fr = new FileReader(patientdata_filePath);
         BufferedReader br = new BufferedReader(fr);
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] tokens = line.split(",");
+        String lline;
+        while ((lline = br.readLine()) != null) {
+            String[] tokens = lline.split(",");
             Patientdatalog patientdatalog = new Patientdatalog(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4]);
-            Patientdatalog.getPatientdatalogsList().add(patientdatalog);
+            Globals.getPatientdatalogsList().add(patientdatalog);
         }
         br.close();
+
+        List <Patientdatalog> patientdatalogs = Globals.getPatientdatalogsList();
+        System.out.println(patientdatalogs.size());
+        System.out.println(patientdatalogs.get(2).getUsername());
+        // for (Patientdatalog log : patientdatalogs) {
+        //      System.out.println(log.getPersonal_details()); // Example: print each log
+        // }
+        
     }
-
-    
-
-
+    // List<Patientdatalog> patientdatalogs = Patientdatalog.getPatientdatalogsList();
+    // for (Patientdatalog patientdatalog : patientdatalogs) {
+    //     System.out.println(Patientdatalog.getUsername());
+    //     }
 }

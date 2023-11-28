@@ -10,8 +10,10 @@ public class Globals {
         return keyword;
     }
 
-
-    
+    private static List<Patient> Patient  = new ArrayList<Patient>();
+    public static List getPatientsList() {
+        return Patient;
+    }
 
     private static List<Staff_Lab> Staff_Lab  = new ArrayList<Staff_Lab>();
     public static List getStaff_LabList() {
@@ -26,6 +28,11 @@ public class Globals {
     private static List<Staff_MedicalOfficer> Staff_MedicalOfficer = new ArrayList<Staff_MedicalOfficer>();
     public static List getStaff_MedicalOfficerList() {
         return Staff_MedicalOfficer;
+    }
+
+    private static List<Patientdatalog> Patientdatalogs = new ArrayList<Patientdatalog>();
+    public static List getPatientdatalogsList() {
+        return Patientdatalogs;
     }
     
     

@@ -7,10 +7,7 @@ public class Patientdatalog {
     private static String drug_prescriptions;
     private static String lab_test_prescription;
 
-    private static List<Patientdatalog> Patientdatalogs = new ArrayList<Patientdatalog>();
-    public static List getPatientdatalogsList() {
-        return Patientdatalogs;
-    }
+
 
     public Patientdatalog(String username, String personal_details, String sickness_details, String drug_prescriptions, String lab_test_prescription) {
         Patientdatalog.username = username;
